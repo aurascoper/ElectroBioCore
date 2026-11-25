@@ -1,0 +1,20 @@
+name = "ElectroBioCore"
+uuid = "7e4b29c0-8d41-4a9b-9c35-2b81f04e6109"
+authors = ["Hunter Kinder <aurascoper@users.noreply.github.com>"]
+version = "0.1.0"
+
+[deps]
+LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
+Printf = "de0858da-6303-5e67-8744-51eddeeeb8d7"
+SHA = "ea8e919c-243c-51af-8825-aaa63cd721ce"
+Statistics = "10745b16-79ce-11e8-11f9-7d13ad32a3b2"
+
+[compat]
+julia = "1.10"
+
+[extras]
+JACC = "0979c8fe-16a4-4796-9b82-89a9f10403ea"
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Test"]

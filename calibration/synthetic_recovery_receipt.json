@@ -1,0 +1,74 @@
+{
+  "schema": "ElectroBioCore.BiocharCalibrationReceipt.v1",
+  "input": {
+    "source_name": "synthetic_self_recovery_input.csv",
+    "csv_sha256": "2cc2d5e5b70a292c0e9d2a433477a2449c6d9ee98b4bd182d081c65004d74d77",
+    "n_points": 25,
+    "has_current_column": true,
+    "is_synthetic_self_recovery": true,
+    "note": "Synthetic parameter-recovery verification only; not fitted to experimental biochar or hydrolysate data."
+  },
+  "gompertz_fit": {
+    "P_max": 0.857420,
+    "R_max_per_h": 0.031073,
+    "lambda_lag_h": 4.189237,
+    "ci95_P_max": 0.035912,
+    "ci95_R_max_per_h": 0.001480,
+    "ci95_lambda_lag_h": 0.547592,
+    "r2": 0.997436,
+    "rmse": 1.317440e-02
+  },
+  "monod_electro_fit": {
+    "j_scale_mA_cm2": 0.938985,
+    "K_half": 0.159386,
+    "k_para_mA_cm2": 0.075310,
+    "ci95_j_scale": 0.001119,
+    "ci95_K_half": 0.000806,
+    "ci95_k_para": 0.000462,
+    "r2_substrate": 0.999988,
+    "rmse_substrate": 1.115873e-03
+  },
+  "pyrolysis_biochar_state": {
+    "T_pyro_C": 680.000000,
+    "eps_0": 0.680000,
+    "L_f_um": 48.000000,
+    "chi": 0.296638,
+    "eps_eff": 0.478286,
+    "R_char_ohm_cm2": 12.748264,
+    "R_ohm_eff_ohm_cm2": 13.561445,
+    "K_half_eff": 0.300280,
+    "j_max_eff_mA_cm2": 1.080681,
+    "k_para_eff_mA_cm2": 0.082017
+  },
+  "core_params": {
+    "mode": 1,
+    "E0_V": -0.300000,
+    "j_scale": 1.080681,
+    "alpha": 1.000000,
+    "K_half": 0.300280,
+    "R_ohm": 13.561445,
+    "k_para": 0.082017,
+    "n_e": 8.000000,
+    "tau_rc": 3.652801,
+    "v_ratio": 0.000850,
+    "theta_cap": 420.000000
+  },
+  "edge_sensitivities": {
+    "dRohm_dTpyro_ohm_cm2_per_C": -0.045679,
+    "dKhalf_dchi": 0.768624,
+    "dP_dLf_mW_per_cm2_um": -0.000172,
+    "detaF_dchi": -0.020106
+  },
+  "trajectory_verification": {
+    "E_app_V": -0.060000,
+    "c_bulk_final": 0.988840,
+    "theta_final": 0.256150,
+    "eta_final_V": 0.228096,
+    "q_cum_mC_cm2": 99.182938,
+    "mean_j_target_mA_cm2": 0.826524,
+    "mean_eta_F": 0.944331,
+    "mean_power_mW_cm2": 0.684457,
+    "yield_fraction": 0.011160,
+    "C_phys_mass_error": 4.135072e-07
+  }
+}

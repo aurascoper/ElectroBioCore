@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: julia-actions/setup-julia@v2
+        with:
+          version: '1.12'
+      - name: Pure-ASCII & Zero-Dash Gate
+        run: |
+          python3 - <<'PY'
+          import pathlib, sys
+          bad = []
+          for p in pathlib.Path(".").rglob("*"):
+              if p.is_file() and ".git" not in p.parts and p.suffix in {".jl", ".csv", ".svg", ".md", ".toml", ".yml", ".json"}:
+                  raw = p.read_bytes()
+                  if any(b > 0x7F for b in raw):
+                      bad.append(str(p))
+          if bad:
+              print("Non-ASCII files:", bad)
+              sys.exit(1)
+          print("ASCII gate passed.")
+          PY
+      - name: Run ElectroBioCore Test Suite
+        run: julia --project=. -e 'using Pkg; Pkg.test()'
